@@ -1,4 +1,3 @@
-// Welcome.styles.js
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -8,7 +7,7 @@ export const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: "rgba(0,0,0,0.3)", // Overlay leve para leitura do texto
+        backgroundColor: "rgba(0,0,0,0.3)",
         justifyContent: "flex-end",
         paddingHorizontal: 25,
         paddingBottom: 40,
@@ -20,7 +19,7 @@ export const styles = StyleSheet.create({
     title: {
         fontSize: 40,
         color: "#FFFFFF",
-        fontFamily: "serif", // Ou ajuste para a fonte customizada do seu projeto
+        fontFamily: "serif",
         marginBottom: 8,
     },
     subtitle: {

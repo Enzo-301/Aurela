@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
     buttonPrimary: {
         width: "100%",
         height: 50,
-        backgroundColor: "#567655", // Verde do Figma
+        backgroundColor: "#567655", 
         borderRadius: 25,
         alignItems: "center",
         justifyContent: "center",

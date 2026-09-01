@@ -1,6 +1,5 @@
-// Login.js
 import { useState } from "react";
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Alert, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ArrowLeft, Eye, EyeOff } from "lucide-react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -9,7 +8,25 @@ import { styles } from "./Login.styles";
 
 export function Login() {
     const navigation = useNavigation();
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     const [showPassword, setShowPassword] = useState(false);
+
+    const handleLogin = () => {
+        if (!email.includes("@") || !email.includes(".")) {
+            Alert.alert("E-mail inválido", "Por favor, digite um e-mail válido contendo '@' e '.'.");
+            return;
+        }
+
+        if (password.length < 8) {
+            Alert.alert("Senha inválida", "A senha deve ter no mínimo 8 caracteres.");
+            return;
+        }
+
+        Alert.alert("Sucesso!", "Login realizado com sucesso.");
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -28,6 +45,8 @@ export function Login() {
                         keyboardType="email-address"
                         autoCapitalize="none"
                         placeholderTextColor="#A0A0A0"
+                        value={email}
+                        onChangeText={setEmail}
                     />
                 </View>
 
@@ -39,6 +58,8 @@ export function Login() {
                             placeholder="Sua senha"
                             secureTextEntry={!showPassword}
                             placeholderTextColor="#A0A0A0"
+                            value={password}
+                            onChangeText={setPassword}
                         />
                         <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                             {showPassword ? <EyeOff size={20} color="#707070" /> : <Eye size={20} color="#707070" />}
@@ -49,7 +70,7 @@ export function Login() {
                     </TouchableOpacity>
                 </View>
 
-                <ButtonPrimary text="Entrar" onPress={() => {}} />
+                <ButtonPrimary text="Entrar" onPress={handleLogin} />
 
                 <TouchableOpacity style={styles.footerLink} onPress={() => navigation.navigate("Register")}>
                     <Text style={styles.footerText}>
