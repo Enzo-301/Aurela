@@ -1,7 +1,12 @@
-import { NavigationContainer } from "@react-navigation/native"; 
+import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { AppRoutes } from "./src/routes/AppRouter";
-import { Poppins_600SemiBold, Poppins_500Medium, Poppins_400Regular, useFonts } from "@expo-google-fonts/poppins";
+import { AppRouter } from "./src/routes/AppRouter";
+import {
+  Poppins_600SemiBold,
+  Poppins_500Medium,
+  Poppins_400Regular,
+  useFonts,
+} from "@expo-google-fonts/poppins";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,7 +22,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <AppRoutes />
+        <AppRouter />
       </NavigationContainer>
     </SafeAreaProvider>
   );
